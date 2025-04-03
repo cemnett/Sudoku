@@ -27,8 +27,13 @@ namespace Sudoku.Controllers
             // Retrieve the board and pass it to the view
             int[,] board = generator.GetBoard();
             
-            // Use a separate view to display the board.
-            return View("Board", board);
+            var model = new SudokuBoardViewModel
+            {
+                Puzzle = generator.GetBoard(),
+                Solution = generator.GetSolution()
+            };
+
+            return View("Board", model);
         }
     }
 }

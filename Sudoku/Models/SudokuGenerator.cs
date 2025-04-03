@@ -14,6 +14,13 @@ namespace Sudoku.Models
             return board;
         }
 
+        private int[,] solutionBoard = new int[9, 9];
+
+        public int[,] GetSolution()
+        {
+            return solutionBoard;
+        }
+
         private int difficulty;
 
         public int Difficulty
@@ -27,6 +34,9 @@ namespace Sudoku.Models
             int numToRemove = Difficulty * 20;
 
             FillGrid();
+
+            solutionBoard = (int[,])board.Clone();
+
             RemoveNumbers(numToRemove);
         }
 
@@ -184,20 +194,5 @@ namespace Sudoku.Models
                 Console.WriteLine();
             }
         }
-        
-        // static void Main(string[] args)
-        // {
-        //     SudokuGenerator generator = new SudokuGenerator();
-
-        //     // Console.WriteLine("Enter the level of difficulty you would like: ");
-        //     // Console.WriteLine("1 - Easy");
-        //     // Console.WriteLine("2 - Medium");
-        //     // Console.WriteLine("3 - Hard");
-        //     // generator.Difficulty = Convert.ToInt32(Console.ReadLine());
-
-        //     generator.Generate(generator);
-        //     // generator.Print();
-
-        // }
     }
 }
