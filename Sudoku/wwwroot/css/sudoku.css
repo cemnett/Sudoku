@@ -51,3 +51,15 @@ table tr:first-child td
 {
     border-top: 2px solid #000;
 }
+
+.selected-cell {
+    background-color: darkblue !important;
+    color: white;
+}
+.same-number-cell {
+    background-color: mediumblue !important;
+    color: white;
+}
+.highlighted-line {
+    background-color: lightblue !important;
+}

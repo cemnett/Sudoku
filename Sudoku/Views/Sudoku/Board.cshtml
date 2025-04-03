@@ -20,7 +20,7 @@
                 <tr>
                     @for (int j = 0; j < 9; j++)
                     {
-                        <td>
+                        <td data-row="@i" data-col="@j">
                             @if(Model.Puzzle[i, j] != 0)
                             {
                                 <!-- Fixed sub-grid value -->
