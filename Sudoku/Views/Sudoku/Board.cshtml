@@ -63,6 +63,11 @@
                 }
             </table>
         </div>
+        
+        <!-- Congratulations message container, hidden by default -->
+        <div id="congratsMessage" class="alert alert-success mt-3" style="display: none;">
+            Congratulations, you have solved it!
+        </div>
 
         <!-- Embed the solution board data in a hidden element for the JS file -->
         <div id="solutionData" data-solution='@Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.JaggedSolution))' style="display:none;"></div>

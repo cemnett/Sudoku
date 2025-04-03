@@ -41,6 +41,8 @@ document.addEventListener('DOMContentLoaded', function () {
             span.classList.add("fixed-cell");
             span.innerText = num;
             input.parentNode.replaceChild(span, input);
+
+            checkCompletion();
         });
     });
 
@@ -60,12 +62,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ------------------------------
-    // 4. Highlighting behavior for fixed cells.
-    // Get all table cells (<td>) in the puzzle board.
+    function checkCompletion() {
+        // If there are no more inputs, assume the puzzle is solved.
+        const remainingInputs = document.querySelectorAll('.sudoku-input');
+        if (remainingInputs.length === 0) {
+            let congratsMsg = document.getElementById("congratsMessage");
+            if (congratsMsg) {
+                congratsMsg.style.display = 'block';
+            } else {
+                alert("Congratulations, you solved it!");
+            }
+        }
+    }
+
     const cells = document.querySelectorAll('table td');
     
-    // Attach click handlers to each cell.
     cells.forEach(function (cell) {
         cell.addEventListener('click', function () {
             // Process only if the cell contains a fixed value.
