@@ -1,0 +1,54 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace, monospace;
+    background-color: #ecdbc7;
+}
+
+.welcome h1 {
+    background-color: #dead9c;
+    margin: -30px -30px 10px;
+    padding: 20px 30px;  
+    border-radius: 12px 12px 0px 0px;
+
+}
+
+.welcome {
+    text-align: center;
+    border: 3px solid #a4896c;
+    padding: 30px;
+    background-color: #fef5eb;
+    border-radius: 15px;
+}
+
+.btn-custom {
+    display: block;
+    width: 200px;
+    margin: 0 auto 10px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding: 12px 12px;
+    border-radius: 10px;
+    background: #fedbb1;
+    color: #fff;
+}
+
+.btn-custom:hover, .btn-custom.active, .btn-custom:focus {
+    background: #efc493;
+}
+
+input[type="submit"].btn-custom {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none; 
+    cursor: pointer;
+    width: 200px;
+}

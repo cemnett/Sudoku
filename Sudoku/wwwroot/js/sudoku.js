@@ -46,18 +46,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ------------------------------
-    // 3. Toggle solution button functionality.
     let toggleBtn = document.getElementById('toggleSolutionBtn');
     let solutionDiv = document.getElementById('solutionDiv');
+    const boardsContainer = document.querySelector('.boards-container');
+
     if (toggleBtn) {
         toggleBtn.addEventListener('click', function () {
             if (solutionDiv.style.display === 'none') {
                 solutionDiv.style.display = 'block';
                 toggleBtn.innerText = 'Hide Solution';
+                boardsContainer.style.justifyContent = 'space-around';
             } else {
                 solutionDiv.style.display = 'none';
                 toggleBtn.innerText = 'Show Solution';
+                boardsContainer.style.justifyContent = 'center';
             }
         });
     }
