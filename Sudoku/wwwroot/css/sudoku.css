@@ -1,0 +1,53 @@
+
+table 
+{
+    border-collapse: collapse;
+    /* Outer border */
+    border: 2px solid #000;
+}
+table td 
+{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 20px;
+    /* Default cell borders */
+    border: 1px solid #ddd;
+}
+
+.sudoku-input {
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 20px;
+    font-family: inherit;
+    width: 100%;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Thicker border on the right edge of every 3rd column */
+table td:nth-child(3n) 
+{
+    border-right: 2px solid #000;
+}
+
+/* Thicker border on the bottom edge of every 3rd row */
+table tr:nth-child(3n) td 
+{
+    border-bottom: 2px solid #000;
+}
+
+/* Make sure the very first cell in each row gets a thicker left border */
+table td:first-child
+{
+    border-left: 2px solid #000;
+}
+
+/* Make sure the cells in the first row get a thicker top border */
+table tr:first-child td 
+{
+    border-top: 2px solid #000;
+}

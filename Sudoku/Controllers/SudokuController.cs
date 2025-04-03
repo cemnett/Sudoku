@@ -30,10 +30,28 @@ namespace Sudoku.Controllers
             var model = new SudokuBoardViewModel
             {
                 Puzzle = generator.GetBoard(),
-                Solution = generator.GetSolution()
+                Solution = generator.GetSolution(),
+                JaggedSolution = ConvertToJaggedArray(generator.GetSolution())
             };
 
             return View("Board", model);
         }
+
+        public int[][] ConvertToJaggedArray(int[,] array)
+        {
+            int rows = array.GetLength(0);
+            int cols = array.GetLength(1);
+            int[][] jagged = new int[rows][];
+            for (int i = 0; i < rows; i++)
+            {
+                jagged[i] = new int[cols];
+                for (int j = 0; j < cols; j++)
+                {
+                    jagged[i][j] = array[i, j];
+                }
+            }
+            return jagged;
+        }
+
     }
 }

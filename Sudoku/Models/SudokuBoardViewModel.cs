@@ -4,5 +4,6 @@ namespace Sudoku.Models
     {
         public int[,] Puzzle { get; set; }
         public int[,] Solution { get; set; }
+        public int[][] JaggedSolution { get; set; }
     }
 }

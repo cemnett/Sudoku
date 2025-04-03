@@ -4,24 +4,11 @@
 <html>
 <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/sudoku.css" />
     <title>Sudoku Board</title>
-    <!-- Include Bootstrap CSS so that "btn" classes are styled -->
+    <!-- Include Bootstrap CSS for button styling -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775/aZOZkF9stFhVlzWg+1mbl0g1dlZxPK" crossorigin="anonymous">
-    <style>
-        table {
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        td {
-            width: 40px;
-            height: 40px;
-            border: 1px solid #333;
-            text-align: center;
-            vertical-align: middle;
-            font-size: 20px;
-        }
-    </style>
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775/aZOZkF9stFhVlzWg+1mbl0g1dlZxPK" crossorigin="anonymous">
 </head>
 <body>
     <div class="container mt-5">
@@ -33,7 +20,18 @@
                 <tr>
                     @for (int j = 0; j < 9; j++)
                     {
-                        <td>@Model.Puzzle[i, j]</td>
+                        <td>
+                            @if(Model.Puzzle[i, j] != 0)
+                            {
+                                <!-- Fixed sub-grid value -->
+                                <span class="fixed-cell">@Model.Puzzle[i, j]</span>
+                            }
+                            else
+                            {
+                                <!-- Blank cell rendered as an input which the user can edit -->
+                                <input type="text" maxlength="1" size="1" class="sudoku-input" data-row="@i" data-col="@j" style="text-align: center;" />
+                            }
+                        </td>
                     }
                 </tr>
             }
@@ -41,7 +39,8 @@
 
         <!-- Buttons -->
         <div class="mt-3">
-            <button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("Index", "Sudoku")'">
+            <button type="button" class="btn btn-primary"
+                    onclick="window.location.href='@Url.Action("Index", "Sudoku")'">
                 Generate Another Puzzle
             </button>
             <button type="button" id="toggleSolutionBtn" class="btn btn-secondary ml-2">
@@ -64,20 +63,11 @@
                 }
             </table>
         </div>
-    </div>
 
-    <!-- JavaScript to toggle the solution board -->
-    <script>
-        document.getElementById('toggleSolutionBtn').addEventListener('click', function () {
-            var solutionDiv = document.getElementById('solutionDiv');
-            if (solutionDiv.style.display === 'none') {
-                solutionDiv.style.display = 'block';
-                this.innerText = 'Hide Solution';
-            } else {
-                solutionDiv.style.display = 'none';
-                this.innerText = 'Show Solution';
-            }
-        });
-    </script>
+        <!-- Embed the solution board data in a hidden element for the JS file -->
+        <div id="solutionData" data-solution='@Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.JaggedSolution))' style="display:none;"></div>
+    </div>
+    <!-- Reference external JavaScript file -->
+    <script src="~/js/sudoku.js"></script>
 </body>
 </html>
