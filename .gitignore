@@ -39,3 +39,11 @@ appsettings.*.local.json
 *.nupkg
 # Uncomment if necessary:
 # !**/packages/*
+
+
+# Ignore build outputs
+bin/
+obj/
+
+# macOS metadata file
+.DS_Store
