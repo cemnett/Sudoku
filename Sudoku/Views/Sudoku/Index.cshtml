@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Select Difficulty";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Select Difficulty</title>
+</head>
+<body>
+    <h1>Select a Difficulty Level</h1>
+    <form asp-action="Index" method="post">
+        <label for="difficulty">Choose difficulty:</label>
+        <select id="difficulty" name="difficulty">
+            <option value="1">Easy</option>
+            <option value="2">Medium</option>
+            <option value="3">Hard</option>
+        </select>
+        <br /><br />
+        <input type="submit" value="Generate Sudoku" />
+    </form>
+</body>
+</html>

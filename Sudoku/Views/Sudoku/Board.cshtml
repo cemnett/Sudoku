@@ -1,0 +1,42 @@
+@model int[,]
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Sudoku Board</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        td {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #333;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+    </style>
+    <!-- Optionally include Bootstrap CSS so "btn btn-primary" styles will be applied -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775/aZOZkF9stFhVlzWg+1mbl0g1dlZxPK" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Your Generated Sudoku Board</h1>
+    <table>
+        @for (int i = 0; i < 9; i++)
+        {
+            <tr>
+                @for (int j = 0; j < 9; j++)
+                {
+                    <td>@Model[i, j]</td>
+                }
+            </tr>
+        }
+    </table>
+    <button type="button" class="btn btn-primary" onclick="window.location.href='@Url.Action("Index", "Sudoku")'">
+        Generate Another Puzzle
+    </button>
+</body>
+</html>
