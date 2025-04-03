@@ -17,26 +17,22 @@ body {
     justify-content: center;
 }
 
-/* Flex container for boards */
 .boards-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 40px; /* Space between the boards */
+    gap: 40px;
     margin: 40px 0;
 }
 
-/* Individual boards styling */
 .board, .solution-board {
     background-color: #fef5eb;
 }
 
-/* Solution board initially hidden */
 .solution-board {
     display: none;
 }
 
-/* Custom button appearance */
 .btn-custom {
     display: block;
     width: 200px;
@@ -51,14 +47,11 @@ body {
     margin: 10px 0;
 }
 
-/* Hover, active, and focus states for buttons */
 .btn-custom:hover, .btn-custom:active, .btn-custom:focus {
     border: none;
     background: #efc493;
 }
 
-
-/* Overall Table Styling */
 table 
 {
     border-collapse: collapse;
@@ -95,7 +88,6 @@ table tr:first-child td
     border-top: 2px solid #a4896c;
 }
 
-/* Style for editable cells in the board */
 .sudoku-input {
     border: none;
     background: transparent;

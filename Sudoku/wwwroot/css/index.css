@@ -10,6 +10,7 @@ body {
     align-items: center;
     font-family: monospace, monospace;
     background-color: #ecdbc7;
+    color: #fff;
 }
 
 .welcome h1 {
