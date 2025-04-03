@@ -42,8 +42,8 @@ appsettings.*.local.json
 
 
 # Ignore build outputs
-bin/
-obj/
+Sudoku/bin/
+Sudoku/obj/
 
 # macOS metadata file
 .DS_Store
