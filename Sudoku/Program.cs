@@ -20,7 +20,6 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-// Set default route to our Sudoku controller (we will create it next)
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Sudoku}/{action=Index}/{id?}");

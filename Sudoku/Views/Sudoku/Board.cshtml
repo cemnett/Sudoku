@@ -6,9 +6,6 @@
         <meta charset="utf-8" />
         <link rel="stylesheet" href="~/css/sudoku.css" />
         <title>Sudoku Board</title>
-        <!-- Include Bootstrap CSS for button styling -->
-        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ775/aZOZkF9stFhVlzWg+1mbl0g1dlZxPK" crossorigin="anonymous">
     </head>
     <body>
         <div class="container mt-5">
@@ -29,7 +26,6 @@
                                         }
                                         else
                                         {
-                                            <!-- Blank cell rendered as an input which the user can edit -->
                                             <input type="text" maxlength="1" size="1" class="sudoku-input" data-row="@i" data-col="@j" style="text-align: center;" />
                                         }
                                     </td>
@@ -67,11 +63,8 @@
             <div id="congratsMessage" class="alert alert-success mt-3" style="display: none;">
                 Congratulations, you have solved it!
             </div>
-
-            <!-- Embed the solution board data in a hidden element for the JS file -->
             <div id="solutionData" data-solution='@Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.JaggedSolution))' style="display:none;"></div>
         </div>
-        <!-- Reference external JavaScript file -->
         <script src="~/js/sudoku.js"></script>
     </body>
 </html>
